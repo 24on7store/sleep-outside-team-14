@@ -26,3 +26,29 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+
+// my codes
+
+function calculateCartTotal(cartItems) {
+  return cartItems.reduce((sum, item) => {
+    return sum + Number(item.FinalPrice);
+  }, 0);
+}
+
+function displayCartTotal(total) {
+  const footer = document.querySelector(".cart-footer");
+  const totalElement = document.querySelector(".cart-total");
+
+  if (total > 0) {
+    footer.classList.remove("hide");
+    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+  }
+}
+
+function loadCartPage() {
+  let cart = JSON.parse(localStorage.getItem("so-cart")) || [];
+  const total = calculateCartTotal(cart);
+  displayCartTotal(total);
+}
+
+loadCartPage();
