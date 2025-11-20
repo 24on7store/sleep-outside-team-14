@@ -241,6 +241,13 @@ button {
   grid-column: 3;
 }
 
+
+/*Ny added codes*/
+.hide {
+  display: none;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
